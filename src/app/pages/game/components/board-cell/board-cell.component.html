@@ -1,4 +1,4 @@
 <div class="board-cell" (click)="reveal()">
-  <div class="cell-type" [ngClass]="cell.type"></div>
+  <div class="cell-type" [ngClass]="cell.type" *ngIf="cell.state === 'revealed'"></div>
   <div class="cell-state" [ngClass]="cell.state"></div>
 </div>

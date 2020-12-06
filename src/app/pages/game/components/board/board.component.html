@@ -2,7 +2,7 @@
 <ng-container *ngFor="let row of game?.boardState | keyvalue">
   <div class="header">{{row.key}}</div>
   <ng-container *ngFor="let column of game?.boardState[row.key] | keyvalue">
-    <app-board-cell [cell]="column.value">{{column}}</app-board-cell>
+    <app-board-cell [cell]="column.value"></app-board-cell>
   </ng-container>
 </ng-container>
 

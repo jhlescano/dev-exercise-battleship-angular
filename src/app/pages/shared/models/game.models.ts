@@ -40,6 +40,8 @@ export class Game {
   ships: Ship[];
   boardState: BoardState;
   difficulty: GameDifficulty;
+  startTime: Date;
+  endTime: Date;
 
   private _turnCount: number = 0;
   private _gameState = new BehaviorSubject<GameState>('running');
@@ -55,17 +57,11 @@ export class Game {
   get allShipsSunk() {
     // if some cell of type ship is hidden then false
     return this.ships.every(s => s.state === 'sunk');
-    /*
-    return !Object.keys(this.boardState).some(r => {
-      return Object.keys(this.boardState[r]).some(c => {
-        const cell = this.boardState[r][c] as BoardCell;
-        return cell.type === 'ship' && cell.state === 'hidden';
-      });
-    });*/
   }
 
   constructor(difficulty: GameDifficulty) {
     this.difficulty = difficulty;
+    this.startTime = new Date();
     this._initGameBoard();
   }
 
@@ -94,11 +90,13 @@ export class Game {
   evaluateGameState() {
     // all ships sunk?
     if (this.allShipsSunk) {
+      this.endTime = new Date();
       return this._gameState.next('win');
     }
 
     // max turns reached
     if (this._turnCount === this.difficulty.maxTurns) {
+      this.endTime = new Date();
       return this._gameState.next('loose');
     }
   }
@@ -156,7 +154,7 @@ export class Game {
     ];
 
     const rows = Object.keys(Rows);
-    const columns = Object.keys(Rows).map((v, i) => i++);
+    const columns = Object.keys(Rows).map((v, i) => i);
 
     const ships: ShipDistribution = [];
 
@@ -184,12 +182,6 @@ export class Game {
 
         } while (this.shipCollapse(ships, cells));
 
-        /*
-        ships.push({
-          id: `ship_${ship.size}_${i+1}`,
-          cells,
-          state: 'live',
-        });*/
         ships.push(cells);
       }
     });
@@ -204,12 +196,4 @@ export class Game {
       }));
     });
   }
-  /*
-  private shipCollapse(ships: any[], cells: Coordinates[]) {
-    return ships.find(ship => {
-      return ship.cells.some(c => !!cells.find(selected => {
-        return selected.x === c.x && selected.y === c.y;
-      }));
-    });
-  }*/
 }

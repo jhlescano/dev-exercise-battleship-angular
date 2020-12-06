@@ -16,6 +16,6 @@ export class BoardCellComponent implements OnInit {
   ngOnInit(): void { }
 
   reveal() {
-    this.gameService.gameState.hitCell(this.cell);
+    this.gameService.gameState.value.hitCell(this.cell);
   }
 }

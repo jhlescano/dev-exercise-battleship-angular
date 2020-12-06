@@ -16,7 +16,9 @@ export class BoardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.game = this.gameService.gameState;
+    this.gameService.currentGame.subscribe(g => {
+      this.game = g;
+    });
 
     this.headers = Object.keys(this.game.boardState).map((v, i) => i);
     this.headers.unshift(null);

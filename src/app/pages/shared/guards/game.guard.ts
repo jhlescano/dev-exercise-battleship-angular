@@ -14,7 +14,7 @@ export class GameGuard implements CanActivate {
   constructor(private gameService: GameService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.gameService.gameState) {
+    if (!this.gameService.gameState.value) {
       this.router.navigate(['/']);
       return false;
     }
