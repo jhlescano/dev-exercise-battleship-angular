@@ -1,0 +1,10 @@
+<div class="header" *ngFor="let h of headers">{{h !== null && h + 1 || ''}}</div>
+<ng-container *ngFor="let row of game?.boardState | keyvalue">
+  <div class="header">{{row.key}}</div>
+  <ng-container *ngFor="let column of game?.boardState[row.key] | keyvalue">
+    <app-board-cell [cell]="column.value">{{column}}</app-board-cell>
+  </ng-container>
+</ng-container>
+
+
+

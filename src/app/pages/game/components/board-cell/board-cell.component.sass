@@ -1,0 +1,33 @@
+:host, .board-cell
+  width: 100%
+  height: 100%
+  cursor: pointer
+
+.board-cell
+  position: relative
+  border: solid 2px black
+  border-radius: 50%
+  overflow: hidden
+
+  .cell-state
+    position: absolute
+    width: 100%
+    height: 100%
+    transition: opacity .3s ease-in-out
+    background-color: blue
+    &.hidden
+      opacity: 1
+    &.revealed
+      opacity: 0
+
+  .cell-type
+    position: absolute
+    width: 100%
+    height: 100%
+    &.ship
+      background-color: red
+    &.sunked-ship
+      background-color: black
+    &.water
+      background-color: transparent
+

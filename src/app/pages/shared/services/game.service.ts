@@ -3,14 +3,12 @@ import { Router } from '@angular/router';
 import { Game, GameDifficulty } from '../models/game.models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameService {
   gameState: Game;
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) {}
 
   startNewGame(difficulty: GameDifficulty) {
     console.log('START GAME!', difficulty);

@@ -4,6 +4,7 @@ import { FinishedGamesComponent } from './finished-games/finished-games.componen
 import { GameSetupComponent } from './game-setup/game-setup.component';
 import { GameComponent } from './game/game.component';
 import { PagesComponent } from './pages.component';
+import { GameGuard } from './shared/guards/game.guard';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
       },
       {
         path: 'game',
-        component: GameComponent
+        component: GameComponent,
+        canActivate: [GameGuard],
       },
       {
         path: 'finided-games',
