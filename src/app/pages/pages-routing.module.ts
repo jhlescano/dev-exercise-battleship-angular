@@ -21,7 +21,7 @@ const routes: Routes = [
         canActivate: [GameGuard],
       },
       {
-        path: 'finided-games',
+        path: 'finished-games',
         component: FinishedGamesComponent
       },
       {

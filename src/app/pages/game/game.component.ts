@@ -18,9 +18,8 @@ export class GameComponent implements OnInit {
     this.gameService.currentGame.subscribe(game => {
       this.game = game;
 
-      this.game.gameEnded.subscribe(state => {
+      this.game?.gameEnded.subscribe(state => {
         if (state !== 'running') {
-          console.log('Game Ended!', state);
           Swal.fire({
             titleText: 'Congratulations!',
             text: 'you won the game!',

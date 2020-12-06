@@ -26,7 +26,7 @@ export type BoardCell = {
   type: 'ship' | 'sunked-ship' | 'water';
 } & Coordinates;
 
-type GameState = 'running' | 'win' | 'loose';
+type GameState = 'running' | 'won' | 'lost';
 
 type ShipDistribution = Coordinates[][];
 
@@ -91,13 +91,13 @@ export class Game {
     // all ships sunk?
     if (this.allShipsSunk) {
       this.endTime = new Date();
-      return this._gameState.next('win');
+      return this._gameState.next('won');
     }
 
     // max turns reached
     if (this._turnCount === this.difficulty.maxTurns) {
       this.endTime = new Date();
-      return this._gameState.next('loose');
+      return this._gameState.next('lost');
     }
   }
 
@@ -138,8 +138,6 @@ export class Game {
         state: 'live',
       });
     });
-
-    console.log('SHIPS', this.ships);
 
     this.boardState = gameBoard as BoardState;
   }

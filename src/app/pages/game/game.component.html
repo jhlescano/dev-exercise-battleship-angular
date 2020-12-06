@@ -1,2 +1,11 @@
-<h2 class="my-3 text-right">turns {{game.turns}}{{game.difficulty.maxTurns && '/' + game.difficulty.maxTurns}}</h2>
+<h2 class="my-3 text-right">turns {{game?.turns}}{{game?.difficulty.maxTurns && '/' + game.difficulty.maxTurns}}</h2>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary"
+      type="button"
+      routerLink="../game-setup">
+      Go back to main menu
+    </button>
+  </div>
+</div>
 <app-board></app-board>

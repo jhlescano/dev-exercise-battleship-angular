@@ -3,6 +3,14 @@ import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Game, GameDifficulty } from '../models/game.models';
 
+export type GameRecord = {
+  start: Date,
+  end: Date,
+  turns: number,
+  accuracy: number,
+  status: string,
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -39,7 +47,15 @@ export class GameService {
 
   goToMatchHistory() {
     this.gameState.next(null);
-    this.router.navigateByUrl('pages/finided-games');
+    this.router.navigateByUrl('pages/finished-games');
+  }
+
+  getGameRecords(): GameRecord[] {
+    const recordsVal = localStorage.getItem('battleship-game-record');
+
+    const records = recordsVal && JSON.parse(recordsVal) || [];
+
+    return records;
   }
 
   private subscribeRecord(game: Game) {
@@ -51,11 +67,28 @@ export class GameService {
   }
 
   private recordGame(gameStatus, game: Game) {
-    const gameResult = {
+
+    let hit = 0
+    let miss = 0;
+
+    Object.values(game.boardState).forEach(row => {
+      Object.values(row).forEach(cell => {
+        if (cell.state === 'revealed') {
+          if (cell.type === 'water')
+            miss++;
+          else
+            hit++;
+        }
+      })
+    });
+
+    console.log('ACCURACY', game.turns, hit, miss);
+
+    const gameResult: GameRecord = {
       start: game.startTime,
       end: game.endTime,
       turns: game.turns,
-      accuracy: game.turns/Math.max(game.turns, game.difficulty.maxTurns),
+      accuracy: hit/game.turns,
       status: gameStatus,
     };
 

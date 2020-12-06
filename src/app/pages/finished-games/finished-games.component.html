@@ -1,1 +1,26 @@
-<p>finished-games works!</p>
+<h1 class="text-center my-3">Game Results</h1>
+<div class="row my-3">
+  <div class="col">
+    <button class="btn btn-primary" routerLink="../game-setup">Go to main menu</button>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Turns used</th>
+      <th>Overall accuracy</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let record of games">
+      <td>{{record.start | date: 'MM-dd-yyyy hh:mm a'}}</td>
+      <td>{{record.end | date: 'MM-dd-yyyy hh:mm a'}}</td>
+      <td>{{record.turns}}</td>
+      <td>{{record.accuracy | percent}}</td>
+      <td>{{record.status}}</td>
+    </tr>
+  </tbody>
+</table>
