@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap')
 
+$background-color: #005274
+$scrollbar-color: #0d2a36
+
 body
-  background-color: #005274
+  &::before
+    content: ''
+    width: 100%
+    height: 100%
+    position: absolute
+    pointer-events: none
+    opacity: .15
+    z-index: -1
+    background-image: url('./assets/bg_wave.png')
+    background-blend-mode: soft-light
+    background-repeat: round
+  background-color: $background-color
   color: white
   font-family: 'Pangolin', cursive
 
@@ -10,3 +24,19 @@ body
   background-color: #5cbde5
   .swal2-title,.swal2-html-container
     color: white
+
+:root
+  scrollbar-face-color: $scrollbar-color // Firefox 63 compatibility
+  scrollbar-track-color: rgba($scrollbar-color, .2) // Firefox 63 compatibility
+  scrollbar-color: rgba($scrollbar-color, .8) rgba($scrollbar-color, .2)
+  scrollbar-width: thin
+
+::-webkit-scrollbar
+  height: 8px
+  width: 8px
+  background: rgba($scrollbar-color, .2)
+
+::-webkit-scrollbar-thumb
+  background: $scrollbar-color
+  border-radius: 1ex
+  -webkit-border-radius: 1ex

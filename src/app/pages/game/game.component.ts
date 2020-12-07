@@ -19,17 +19,20 @@ export class GameComponent implements OnInit {
       this.game = game;
 
       this.game?.gameEnded.subscribe(state => {
+        const titleText = state === 'won' ? 'Congratulations!' : 'Game Over!';
+        const text = state === 'won' ? 'you won the game!' : 'do you want to play again?';
+
         if (state !== 'running') {
           Swal.fire({
-            titleText: 'Congratulations!',
-            text: 'you won the game!',
+            titleText,
+            text,
             allowOutsideClick: false,
             allowEscapeKey: false,
             showConfirmButton: true,
             confirmButtonText: 'Home',
             confirmButtonColor: '#0083b9',
             showDenyButton: true,
-            denyButtonText: 'Play Again',
+            denyButtonText: 'Try Again',
             denyButtonColor: '#196483',
             showCancelButton: true,
             cancelButtonText: 'Match History',

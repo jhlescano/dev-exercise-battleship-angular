@@ -45,7 +45,7 @@ export class GameSetupComponent implements OnInit {
   get validSetup() {
     if (!this.selectedDifficulty) {
       //no difficulty selected
-      this.errorMsg = 'select a difficulty';
+      this.errorMsg = 'set a difficulty or amount of turns';
       return false;
     } else if (this.selectedDifficulty.id === 'custom' && this.selectedDifficulty.maxTurns <= 0) {
       //custom difficulty with invalid amount of turns

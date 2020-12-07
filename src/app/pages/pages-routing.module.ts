@@ -28,7 +28,7 @@ const routes: Routes = [
         path: '',
         redirectTo: 'game-setup',
         pathMatch: 'full'
-      }
+      },
     ],
   },
 ];
