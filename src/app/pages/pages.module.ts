@@ -9,10 +9,11 @@ import { FinishedGamesComponent } from './finished-games/finished-games.componen
 import { FormsModule } from '@angular/forms';
 import { BoardComponent } from './game/components/board/board.component';
 import { BoardCellComponent } from './game/components/board-cell/board-cell.component';
+import { ShipsDisplayComponent } from './game/components/ships-display/ships-display.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, GameSetupComponent, GameComponent, FinishedGamesComponent, BoardComponent, BoardCellComponent],
+  declarations: [PagesComponent, GameSetupComponent, GameComponent, FinishedGamesComponent, BoardComponent, BoardCellComponent, ShipsDisplayComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

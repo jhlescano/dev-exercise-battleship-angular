@@ -30,7 +30,7 @@ type GameState = 'running' | 'won' | 'lost';
 
 type ShipDistribution = Coordinates[][];
 
-type Ship = {
+export type Ship = {
   id: string,
   cells: BoardCell[],
   state: 'live' | 'sunk',

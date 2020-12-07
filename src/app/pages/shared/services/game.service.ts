@@ -82,8 +82,6 @@ export class GameService {
       })
     });
 
-    console.log('ACCURACY', game.turns, hit, miss);
-
     const gameResult: GameRecord = {
       start: game.startTime,
       end: game.endTime,

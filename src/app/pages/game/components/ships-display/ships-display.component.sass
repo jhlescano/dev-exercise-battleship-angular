@@ -1,0 +1,38 @@
+$ship-size: 10px
+
+.ship
+  display: flex
+  margin: 10px ($ship-size + 30px)
+
+  &.live .ship-size-unit
+    color: white
+    background: white
+
+  &.sunk .ship-size-unit
+    color: black
+    background: black
+
+  .ship-size-unit
+    position: relative
+    margin: 0 2px
+    width: $ship-size
+    height: $ship-size
+
+    &:not(:first-child):not(:last-child)
+      width: $ship-size*2
+    &:first-child:before
+        content: ''
+        width: 0
+        height: 0
+        position: absolute
+        left: -$ship-size
+        border-top: $ship-size solid
+        border-left: $ship-size solid transparent
+    &:last-child:after
+        content: ''
+        width: 0
+        height: 0
+        position: absolute
+        right: -$ship-size
+        border-top: $ship-size solid
+        border-right: $ship-size solid transparent

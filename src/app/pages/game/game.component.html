@@ -8,4 +8,10 @@
     <h2 class="text-right m-0">turns {{game?.turns}}{{game?.difficulty.maxTurns && '/' + game.difficulty.maxTurns}}</h2>
   </div>
 </div>
-<app-board></app-board>
+<div class="row flex-grow-1">
+  <div class="col d-flex">
+    <app-board></app-board>
+    <app-ships-display [ships]="game?.ships"></app-ships-display>
+  </div>
+</div>
+

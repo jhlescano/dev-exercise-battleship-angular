@@ -1,0 +1,5 @@
+<div class="d-flex flex-column h-100 justify-content-center">
+  <div class="ship {{ship.state}}" *ngFor="let ship of ships">
+    <div class="ship-size-unit" *ngFor="let unit of ship.cells"></div>
+  </div>
+</div>
