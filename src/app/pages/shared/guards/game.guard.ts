@@ -15,7 +15,7 @@ export class GameGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (!this.gameService.gameState.value) {
-      this.router.navigate(['/']);
+      this.router.navigate(['pages/finished-games']);
       return false;
     }
 
