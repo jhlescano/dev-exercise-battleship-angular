@@ -1,27 +1,43 @@
-# DevExerciseBattleshipAngular
+# Developer exercise: Battleship
 
+This is my implementation of the Battleship game with Angular as a developer exercise.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Brief description
 
-## Code scaffolding
+This project recreates the board game Battleship on a single player mode.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Game Setup - Configure a new game
+* Game Board - Play the game!
+* Match history - Results list of finished games
 
-## Build
+There are 10 ships of different sizes (preconfigured) placed randomly on the board.
+The goal is to hit all the ships cells before running out of turns.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+---
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+clone the project from:
 
-## Running end-to-end tests
+`git clone https://github.com/jhlescano/dev-exercise-battleship-angular.git`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+move to the cloned directory and proceed to install all dependencies
 
-## Further help
+`npm install` or `npm i`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+and run the project:
+
+`npm run start`
+
+and then access to http://localhost:4200 (by default runs on port 4200 otherwise runs on the next available port).
+
+---
+
+# Built With
+
+* [Angular](https://angular.io/)
+* [Bootstrap](https://getbootstrap.com/) - Layout & styles
+* [SweetAlert 2](https://sweetalert2.github.io/) - Popup handling library
